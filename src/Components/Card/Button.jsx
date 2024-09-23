@@ -23,18 +23,33 @@ const style = {
 };
 const BasicModal=()=> {
   const [open, setOpen] = React.useState(false);
+  const [nombre, setNombre] = React.useState("");
+  const [imagen, setImagen] = React.useState("");
+  const [desc, setDesc] = React.useState("");
+  const [precio, setPrecio] = React.useState("");
+  const [id, setId] = React.useState("");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleCreate = () => {
+    let newProduct = {
+
+    }
+  }; 
 
   return (
+
     <div>
+      
       <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+
       >
+      
+
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Ingrese nombre: <input></input>
@@ -43,7 +58,7 @@ const BasicModal=()=> {
             Precio: <input></input>
             Id: <input></input>
           </Typography>
-          <Button onClick={handleOpen}>Create</Button>
+          <Button onClick={handleCreate}>Create</Button>
         </Box>
       </Modal>
     </div>
