@@ -19,4 +19,5 @@ const Card = ({ name, image, description, price }) => {
   );
 };
 
+
 export default Card;

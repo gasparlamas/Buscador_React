@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Typography, Button } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-
 import "./ProductSearchPage.css";
 import Card from "../../Components/Card/Card";
+import BasicModal from "../../Components/Card/Button";
 
 const productsData = [
   {
@@ -109,6 +109,7 @@ const ProductSearchPage = () => {
           No se encontraron resultados
         </Typography>
       )}
+      <BasicModal/>
     </div>
   );
 };
