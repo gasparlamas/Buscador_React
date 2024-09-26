@@ -21,7 +21,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const BasicModal=()=> {
+const BasicModal=({addProduct})=> {
   const [open, setOpen] = React.useState(false);
   const [nombre, setNombre] = React.useState("");
   const [imagen, setImagen] = React.useState("");
@@ -30,11 +30,41 @@ const BasicModal=()=> {
   const [id, setId] = React.useState("");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleCreate = () => {
-    let newProduct = {
 
+  const handleChangeNombre = (event) => {
+    setNombre(event.target.value);
+  };
+  const handleChangeImagen = (event) => {
+    setImagen(event.target.value);
+  };
+  const handleChangeDesc = (event) => {
+    setDesc(event.target.value);
+  };
+  const handleChangePrecio = (event) => {
+    setPrecio(event.target.value);
+  };
+  const handleChangeId = (event) => {
+    setId(event.target.value);
+  };
+  
+  const handleCreate = () => {
+    let product =  {
+      id: 4352,
+      name: nombre,
+      description: desc,
+      image:
+        imagen,
+      price: precio,
     }
-  }; 
+    addProduct((prev)=>{
+       const newProducts =[...prev];
+      newProducts.push(product);
+    return newProducts;
+    });
+    handleClose();
+  }
+
+ 
 
   return (
 
@@ -52,11 +82,36 @@ const BasicModal=()=> {
 
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Ingrese nombre: <input></input>
-            Ingrese url imagen: <input></input>
-            Descripcion: <input></input>
-            Precio: <input></input>
-            Id: <input></input>
+            Ingrese nombre: <input
+          type="text"
+          value={nombre}
+          onChange={handleChangeNombre}
+          placeholder="Cambiar nombre"
+        />
+            Ingrese url imagen: <input
+          type="text"
+          value={imagen}
+          onChange={handleChangeImagen}
+          placeholder="Cambiar nombre"
+        />
+            Descripcion: <input
+          type="text"
+          value={desc}
+          onChange={handleChangeDesc}
+          placeholder="Cambiar nombre"
+        />
+            Precio: <input
+          type="text"
+          value={precio}
+          onChange={handleChangePrecio}
+          placeholder="Cambiar nombre"
+        />
+            Id: <input
+          type="text"
+          value={id}
+          onChange={handleChangeId}
+          placeholder="Cambiar nombre"
+        />
           </Typography>
           <Button onClick={handleCreate}>Create</Button>
         </Box>

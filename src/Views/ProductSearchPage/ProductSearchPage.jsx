@@ -81,6 +81,8 @@ const ProductSearchPage = () => {
     );
   }, [search]);
 
+
+
   return (
     <div className="product-search-page">
       <TextField
@@ -109,7 +111,7 @@ const ProductSearchPage = () => {
           No se encontraron resultados
         </Typography>
       )}
-      <BasicModal/>
+      <BasicModal addProduct={setProducts}/>
     </div>
   );
 };
